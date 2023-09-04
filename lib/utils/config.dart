@@ -23,7 +23,7 @@ class Config
 
   static const smallTextFont='Noto Naskh Arabic';
 
-  static const colorGrey=Color(0xffBFC9CA);
+  static const colorGrey=Color(0xff95A5A6);
 
   static const primaryFontEnglish='Vidaloka';
 

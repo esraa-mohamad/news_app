@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/utils/config.dart';
+import 'package:news_app/widgets/category_card.dart';
+import 'package:news_app/widgets/category_listview.dart';
 
 class NewsHome extends StatefulWidget {
   const NewsHome({super.key});
@@ -9,6 +11,8 @@ class NewsHome extends StatefulWidget {
 }
 
 class _NewsHomeState extends State<NewsHome> {
+
+
   @override
   Widget build(BuildContext context) {
     Config().init(context);
@@ -41,10 +45,13 @@ class _NewsHomeState extends State<NewsHome> {
           ],
         ),
       ),
-      body: const Column(
-        children: [
-
-        ],
+      body:  Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          children: [
+            CategoryListView(),
+          ],
+        ),
       )
     );
   }
