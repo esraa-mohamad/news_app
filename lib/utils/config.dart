@@ -19,7 +19,7 @@ class Config
 
   static const primaryWeightArabic=FontWeight.w700;
 
-  static const smallTextColor=Color(0xffBB8FCE);
+  static const smallTextColor=Color(0xffB528FB);
 
   static const smallTextFont='Noto Naskh Arabic';
 

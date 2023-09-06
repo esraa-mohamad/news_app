@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/utils/config.dart';
-import 'package:news_app/widgets/category_card.dart';
 import 'package:news_app/widgets/category_listview.dart';
+import 'package:news_app/widgets/news_listview.dart';
 
 class NewsHome extends StatefulWidget {
   const NewsHome({super.key});
@@ -45,13 +45,26 @@ class _NewsHomeState extends State<NewsHome> {
           ],
         ),
       ),
+      // ignore: prefer_const_constructors
       body:  Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          children: [
-            CategoryListView(),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20
+        ),
+        child:  const CustomScrollView(
+          physics: BouncingScrollPhysics(),
+          slivers: [
+            SliverToBoxAdapter(
+              child: CategoryListView(),
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 30,
+              ),
+            ),
+           NewsListView()
           ],
         ),
+
       )
     );
   }
