@@ -30,7 +30,7 @@ class NewsTile extends StatelessWidget {
             color: Config.smallTextColor,
             fontSize: 20,
             fontWeight: FontWeight.w600,
-            fontFamily: Config.primaryFontArabic
+            fontFamily: Config.primaryFontEnglish
           ),
         ),
         const SizedBox(
