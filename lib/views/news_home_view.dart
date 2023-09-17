@@ -1,7 +1,12 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/utils/config.dart';
 import 'package:news_app/widgets/category_listview.dart';
 import 'package:news_app/widgets/news_listview.dart';
+
+import '../models/articles_model.dart';
+import '../services/new_services.dart';
+import '../widgets/news_list_builder.dart';
 
 class NewsHome extends StatefulWidget {
   const NewsHome({super.key});
@@ -28,18 +33,18 @@ class _NewsHomeState extends State<NewsHome> {
               'News',
               style: TextStyle(
                 color: Config.colorGrey,
-                fontFamily: Config.primaryFontEnglish,
+                fontFamily: Config.primaryFont,
                 fontSize: 25,
-                fontWeight: Config.primaryWeightEnglish,
+                fontWeight: Config.primaryWeight,
               ),
             ),
             Text(
               'Cloud',
               style: TextStyle(
                   color: Config.primaryColor,
-                  fontFamily: Config.primaryFontEnglish,
+                  fontFamily: Config.primaryFont,
                   fontSize: 25,
-                fontWeight: Config.primaryWeightEnglish
+                fontWeight: Config.primaryWeight
               ),
             ),
           ],
@@ -50,7 +55,7 @@ class _NewsHomeState extends State<NewsHome> {
         padding: const EdgeInsets.symmetric(
           horizontal: 20
         ),
-        child:  const CustomScrollView(
+        child:  CustomScrollView(
           physics: BouncingScrollPhysics(),
           slivers: [
             SliverToBoxAdapter(
@@ -61,7 +66,7 @@ class _NewsHomeState extends State<NewsHome> {
                 height: 30,
               ),
             ),
-           NewsListView()
+            NewsListViewBuilder(),
           ],
         ),
 
@@ -69,3 +74,6 @@ class _NewsHomeState extends State<NewsHome> {
     );
   }
 }
+
+
+

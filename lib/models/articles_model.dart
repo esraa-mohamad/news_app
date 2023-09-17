@@ -16,7 +16,7 @@ class ArticlesModel {
 
 class Source
 {
-  final String id ;
+  final String? id ;
   final String name ;
 
   Source(

@@ -83,17 +83,12 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Amiri
-      fonts:
-         - asset: fonts/Amiri-Regular.ttf
-         - asset: fonts/Amiri-Bold.ttf
-           weight: 700
-    - family: Noto Naskh Arabic
-      fonts:
-         - asset: fonts/NotoNaskhArabic-VariableFont_wght.ttf
     - family: Vidaloka
       fonts:
          - asset: fonts/Vidaloka-Regular.ttf
+    - family: Rubik
+      fonts:
+        - asset: fonts/Rubik-VariableFont_wght.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

@@ -1,28 +1,30 @@
 import 'package:flutter/material.dart';
-
+import '../models/articles_model.dart';
 import 'news_tile.dart';
 
-class NewsListView extends  StatefulWidget {
-  const NewsListView({super.key});
+// ignore: must_be_immutable
+class NewsListView extends StatelessWidget {
+   NewsListView({super.key, required this.articles});
 
-  @override
-  State<NewsListView> createState() => _NewsListViewState();
-}
+  final List<ArticlesModel> articles;
 
-class _NewsListViewState extends State<NewsListView> {
+
   @override
   Widget build(BuildContext context) {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
             (context, index)  {
-          return const Padding(
+          return  Padding(
             padding: EdgeInsets.only(bottom: 20),
-            child: NewsTile(),
+            child: NewsTile(
+              articleModel: articles[index],
+            ),
           );
         },
-        childCount: 10,
+        childCount: articles.length,
       ),
 
     );
   }
 }
+

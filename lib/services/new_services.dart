@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:news_app/models/articales_model.dart';
+import 'package:news_app/models/articles_model.dart';
 
 class NewsServices {
 

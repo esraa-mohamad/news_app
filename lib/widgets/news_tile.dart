@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/models/articles_model.dart';
 import 'package:news_app/utils/config.dart';
 
 
 // cached network image
 class NewsTile extends StatelessWidget {
-  const NewsTile({super.key});
+  const NewsTile({super.key ,required this.articleModel});
 
+  final ArticlesModel articleModel ;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -13,36 +15,44 @@ class NewsTile extends StatelessWidget {
       children: [
         ClipRRect(
             borderRadius: BorderRadius.circular(6),
-            child: Image.network(
-              ('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.odishanewsagency.com%2Fentertainment-news-from-e%2F&psig=AOvVaw3BBN7B46ympowSvC5hqSlb&ust=1694116903033000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCNC4xLfjloEDFQAAAAAdAAAAABAR'),
+            child:articleModel.image != null ?
+            Image.network(
+              articleModel.image!,
               height: 200,
               width: double.infinity,
               fit: BoxFit.cover,
-            )),
+            ) :
+            Image.asset(
+                'assets/images/news.png',
+              height: 200,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+    ),
         const SizedBox(
           height: 12,
         ),
-        const Text(
-          'Watch the latest top stories with France 24: catch up with the news with a new bulletin every 30 minutes',
+         Text(
+          articleModel.title,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
             color: Config.smallTextColor,
             fontSize: 20,
-            fontWeight: FontWeight.w600,
-            fontFamily: Config.primaryFontEnglish
+            fontWeight: Config.primaryWeightTitle,
+            fontFamily: Config.primaryFontTitle
           ),
         ),
         const SizedBox(
           height: 8,
         ),
-        const Text(
-          "Follow the headlines in realtime with the latest France 24 on-demand news bulletin. France 24's latest updates and reports are also available in French, Spanish and Arabic.",
+        Text(
+          articleModel.subTitle ?? 'No any description for this news',
           maxLines: 2,
           style: TextStyle(
               color: Config.colorGrey,
               fontSize: 14,
-            fontWeight: FontWeight.w500
+            fontWeight: FontWeight.w500,
           ),
         )
       ],
