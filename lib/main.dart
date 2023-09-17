@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/services/new_services.dart';
+import 'package:news_app/views/category_view.dart';
 import 'package:news_app/views/news_home_view.dart';
 
 void main() {
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         'NewsHome':(context) =>  const NewsHome(),
+        'CategoryView':(context)=>const CategoryView(),
       },
       initialRoute: 'NewsHome',
     );
