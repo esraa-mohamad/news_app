@@ -9,6 +9,9 @@ import 'news_listview.dart';
 
 // ignore: must_be_immutable
 class NewsListViewBuilder extends StatefulWidget {
+  const NewsListViewBuilder({super.key , required this.category});
+
+  final String category;
 
   @override
   State<NewsListViewBuilder> createState() => _NewsListViewBuilderState();
@@ -16,13 +19,16 @@ class NewsListViewBuilder extends StatefulWidget {
 
 class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
   // List<ArticlesModel> articles = [];
+  // ignore: prefer_typing_uninitialized_variables
   var future;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    future=NewsServices(Dio()).getNews();
+    future=NewsServices(Dio()).getNews(
+      category: widget.category,
+    );
   }
   @override
   Widget build(BuildContext context) {
@@ -39,7 +45,7 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
       }
       else if (snapshot.hasError)
       {
-          return SliverToBoxAdapter(
+          return const SliverToBoxAdapter(
             child: Center(
               child: Text(
                 'OOPS! There ia a problem',
@@ -55,7 +61,7 @@ class _NewsListViewBuilderState extends State<NewsListViewBuilder> {
       }
       else
       {
-          return SliverToBoxAdapter(
+          return const SliverToBoxAdapter(
                 child: Center(
                   child: CircularProgressIndicator(
                     color: Config.colorCategory,

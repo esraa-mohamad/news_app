@@ -1,11 +1,7 @@
-import 'package:dio/dio.dart';
+
 import 'package:flutter/material.dart';
 import 'package:news_app/utils/config.dart';
 import 'package:news_app/widgets/category_listview.dart';
-import 'package:news_app/widgets/news_listview.dart';
-
-import '../models/articles_model.dart';
-import '../services/new_services.dart';
 import '../widgets/news_list_builder.dart';
 
 class NewsHome extends StatefulWidget {
@@ -55,7 +51,7 @@ class _NewsHomeState extends State<NewsHome> {
         padding: const EdgeInsets.symmetric(
           horizontal: 20
         ),
-        child:  CustomScrollView(
+        child:  const CustomScrollView(
           physics: BouncingScrollPhysics(),
           slivers: [
             SliverToBoxAdapter(
@@ -66,7 +62,9 @@ class _NewsHomeState extends State<NewsHome> {
                 height: 30,
               ),
             ),
-            NewsListViewBuilder(),
+            NewsListViewBuilder(
+              category: 'general',
+            ),
           ],
         ),
 

@@ -36,7 +36,7 @@ class NewsTile extends StatelessWidget {
           articleModel.title,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
-          style: TextStyle(
+          style: const TextStyle(
             color: Config.smallTextColor,
             fontSize: 20,
             fontWeight: Config.primaryWeightTitle,
@@ -49,7 +49,7 @@ class NewsTile extends StatelessWidget {
         Text(
           articleModel.subTitle ?? 'No any description for this news',
           maxLines: 2,
-          style: TextStyle(
+          style: const TextStyle(
               color: Config.colorGrey,
               fontSize: 14,
             fontWeight: FontWeight.w500,

@@ -4,7 +4,7 @@ import 'news_tile.dart';
 
 // ignore: must_be_immutable
 class NewsListView extends StatelessWidget {
-   NewsListView({super.key, required this.articles});
+   const NewsListView({super.key, required this.articles});
 
   final List<ArticlesModel> articles;
 
@@ -15,7 +15,7 @@ class NewsListView extends StatelessWidget {
       delegate: SliverChildBuilderDelegate(
             (context, index)  {
           return  Padding(
-            padding: EdgeInsets.only(bottom: 20),
+            padding: const EdgeInsets.only(bottom: 20),
             child: NewsTile(
               articleModel: articles[index],
             ),

@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:news_app/models/category_model.dart';
+import 'package:news_app/views/category_view.dart';
 
 import '../utils/config.dart';
 
@@ -11,7 +13,12 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.pushNamed(context, 'CategoryView');
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>
+            CategoryView(
+                category: category.categoryName,
+            ),
+        ),
+      );
       },
       child: Padding(
         padding: const EdgeInsets.only(right: 15),

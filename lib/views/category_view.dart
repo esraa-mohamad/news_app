@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/widgets/news_list_builder.dart';
 
-class CategoryView extends StatefulWidget {
-  const CategoryView({super.key});
 
-  @override
-  State<CategoryView> createState() => _CategoryViewState();
-}
+class CategoryView extends StatelessWidget {
+  const CategoryView({super.key ,required this.category});
 
-class _CategoryViewState extends State<CategoryView> {
+  final String category ;
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return  Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(15, 35, 15, 0),
+        child: CustomScrollView(
+          slivers: [
+            NewsListViewBuilder(
+              category: category,
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
