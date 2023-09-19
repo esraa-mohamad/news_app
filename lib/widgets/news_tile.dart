@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/models/articles_model.dart';
 import 'package:news_app/utils/config.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 // cached network image
@@ -8,27 +9,37 @@ class NewsTile extends StatelessWidget {
   const NewsTile({super.key ,required this.articleModel});
 
   final ArticlesModel articleModel ;
+
+  getUrl() async {
+    final Uri url = Uri.parse(articleModel.url);
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch ${articleModel.url}');
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        ClipRRect(
-            borderRadius: BorderRadius.circular(6),
-            child:articleModel.image != null ?
-            Image.network(
-              articleModel.image!,
-              height: 200,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ) :
-            Image.asset(
-                'assets/images/news.png',
-              height: 200,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
+        GestureDetector(
+          onTap: getUrl,
+          child: ClipRRect(
+              borderRadius: BorderRadius.circular(6),
+              child:articleModel.image != null ?
+              Image.network(
+                articleModel.image!,
+                height: 200,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ) :
+              Image.asset(
+                  'assets/images/news.png',
+                height: 200,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ),
     ),
+        ),
         const SizedBox(
           height: 12,
         ),

@@ -19,23 +19,26 @@ class _NewsHomeState extends State<NewsHome> {
     Config().init(context);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+        automaticallyImplyLeading: false,
+        shadowColor: const Color(0xffC8A9DC),
+        backgroundColor: const Color(0xffEAD7F7),
+        elevation: 4,
         centerTitle: true,
-        title: const Row(
+        title:  Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
+            Image.asset('assets/images/earth.png',width: 20,height: 30,),
+            const Text(
               'News',
               style: TextStyle(
-                color: Config.colorGrey,
+                color: Config.colorNews,
                 fontFamily: Config.primaryFont,
                 fontSize: 25,
                 fontWeight: Config.primaryWeight,
               ),
             ),
-            Text(
-              'Cloud',
+            const Text(
+              'World',
               style: TextStyle(
                   color: Config.primaryColor,
                   fontFamily: Config.primaryFont,
@@ -48,8 +51,8 @@ class _NewsHomeState extends State<NewsHome> {
       ),
       // ignore: prefer_const_constructors
       body:  Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 20
+        padding: const EdgeInsets.fromLTRB(
+          20,35,20,0
         ),
         child:  const CustomScrollView(
           physics: BouncingScrollPhysics(),

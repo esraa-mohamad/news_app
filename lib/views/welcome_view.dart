@@ -7,6 +7,7 @@ class WelcomeView extends StatelessWidget {
 
    List <Color> colorGradient =const
    [
+     Config.colorNews,
      Color(0xffC168FD),
      Color(0xffB288CE),
      Color(0xffC8A9DC),
@@ -23,6 +24,7 @@ class WelcomeView extends StatelessWidget {
      Color(0xffB288CE),
      Color(0xffC8A9DC),
      Color(0xffEAD7F7),
+     Config.colorNews,
    ];
 
   @override

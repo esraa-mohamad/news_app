@@ -19,6 +19,8 @@ class Config
 
   static const colorGrey=Color(0xff979fa6);
 
+  static const colorNews =Color(0xff10538d);
+
   static const colorWelcome = Color(0xff12A7E3);
 
   static const colorCategory = Color(0xffC6ADD2);
