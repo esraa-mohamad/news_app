@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   dio: ^5.3.2
   url_launcher: ^6.1.14
+  animated_text_kit: ^4.2.2
 
 
 dev_dependencies:
